@@ -191,7 +191,6 @@ export interface Author {
   id: number;
   name: string;
   bio?: string | null;
-  photo: number | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -361,7 +360,6 @@ export interface MediaSelect<T extends boolean = true> {
 export interface AuthorsSelect<T extends boolean = true> {
   name?: T;
   bio?: T;
-  photo?: T;
   updatedAt?: T;
   createdAt?: T;
 }
