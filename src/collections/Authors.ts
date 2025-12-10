@@ -22,12 +22,5 @@ export const Authors: CollectionConfig = {
       type: 'textarea',
       required: false,
     },
-
-    {
-      name: 'photo',
-      type: 'upload',
-      relationTo: 'media',
-      required: true,
-    },
   ],
 }
