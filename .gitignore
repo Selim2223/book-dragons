@@ -49,7 +49,10 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 
-# Payload
+#Payload
 .payload
+*.db
+*.sqlite
+*.sqlite3
 
 
