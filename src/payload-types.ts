@@ -71,6 +71,8 @@ export interface Config {
     media: Media;
     authors: Author;
     genres: Genre;
+    'age-groups': AgeGroup;
+    books: Book;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +84,8 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     authors: AuthorsSelect<false> | AuthorsSelect<true>;
     genres: GenresSelect<false> | GenresSelect<true>;
+    'age-groups': AgeGroupsSelect<false> | AgeGroupsSelect<true>;
+    books: BooksSelect<false> | BooksSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -207,6 +211,38 @@ export interface Genre {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "age-groups".
+ */
+export interface AgeGroup {
+  id: number;
+  name: string;
+  description: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "books".
+ */
+export interface Book {
+  id: number;
+  title: string;
+  /**
+   * Brukes i URL, f eks the-book
+   */
+  slug: string;
+  author: number | Author;
+  genres: (number | Genre)[];
+  ageGroup: number | AgeGroup;
+  price: number;
+  stock: number;
+  cover: number | Media;
+  description: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -244,6 +280,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'genres';
         value: number | Genre;
+      } | null)
+    | ({
+        relationTo: 'age-groups';
+        value: number | AgeGroup;
+      } | null)
+    | ({
+        relationTo: 'books';
+        value: number | Book;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -369,6 +413,33 @@ export interface AuthorsSelect<T extends boolean = true> {
  */
 export interface GenresSelect<T extends boolean = true> {
   name?: T;
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "age-groups_select".
+ */
+export interface AgeGroupsSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "books_select".
+ */
+export interface BooksSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  author?: T;
+  genres?: T;
+  ageGroup?: T;
+  price?: T;
+  stock?: T;
+  cover?: T;
   description?: T;
   updatedAt?: T;
   createdAt?: T;
