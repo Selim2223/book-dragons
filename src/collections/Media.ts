@@ -36,3 +36,4 @@ export const Media: CollectionConfig = {
     },
   ],
 }
+//glemete sub-issues, men gjort etterpå
