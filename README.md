@@ -1,6 +1,6 @@
 #
 
-git clone
+git clone https://github.com/Selim2223/book-dragons
 cd book-dragons
 npm install 
 npx payload migrate
