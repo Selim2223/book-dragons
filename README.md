@@ -7,6 +7,7 @@ npx payload migrate
 npm run dev
 logg admin bruke
 fylle kolleksjoner i payload og siste Books da får innhold på nettsiden med bøker
+rakk ikke å lage video til slutt
 
 
 
