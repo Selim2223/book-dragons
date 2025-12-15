@@ -1,18 +1,16 @@
-import React from 'react'
-import './styles.css'
+import '@/app/(frontend)/globals.css'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
-}
-
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props
-
+export default function FrontendLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="no">
       <body>
-        <main>{children}</main>
+        <div className="page-wrapper">
+          <Header />
+          <main className="content">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   )
