@@ -1,3 +1,16 @@
+#
+
+git clone
+cd book-dragons
+npm install 
+npx payload migrate
+npm run dev
+logg admin bruke
+fylle kolleksjoner i payload og siste Books da får innhold på nettsiden med bøker
+
+
+
+
 # Payload Blank Template
 
 This template comes configured with the bare minimum to get started on anything you need.
